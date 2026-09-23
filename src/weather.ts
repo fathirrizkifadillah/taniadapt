@@ -29,10 +29,29 @@ const params2 = new URLSearchParams({
   timezone: "Asia/Jakarta"
 });
 
-const response2 = await fetch(`${url}?${params}`);
+const response2 = await fetch(`${url}?${params2}`);
 
 console.log("Status:", response2.status);
 
 const data2 = await response2.json();
 
 console.log(data2);
+
+////////////// Hourly
+console.log("Percobaan ke-3 (Hourly)");
+
+const params3 = new URLSearchParams({
+  latitude: "-7.3274",
+  longitude: "108.2207",
+  hourly: "temperature_2m,relative_humidity_2m,precipitation_probability,precipitation",
+  forecast_days: "2",
+  timezone: "Asia/Jakarta"
+});
+
+const response3 = await fetch(`${url}?${params3}`);
+
+console.log("Status:", response3.status);
+
+const data3 = await response3.json();
+
+console.log(data3);
