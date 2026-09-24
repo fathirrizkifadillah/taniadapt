@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Design tokens from PRD Section 5.1 */
+:root {
+  --color-safe: #15803D;
+  --color-warn: #B45309;
+  --color-danger: #B91C1C;
+  --color-surface: #F8FAFC;
+  --color-text: #0F172A;
+}
+
+/* High-contrast outdoor-friendly defaults */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Touch target accessibility - minimum 56px per PRD */
+button, a, [role="button"] {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Remove focus outline and add custom ring */
+*:focus-visible {
+  outline: 2px solid var(--color-safe);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* PWA iOS status bar */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
